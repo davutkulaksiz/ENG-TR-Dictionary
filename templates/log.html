@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="{{url_for('static', filename='logo.jpg')}}">
     <!-- Bootstrap-->
-    <link rel="stylesheet" href="{{url_for('static', filename='/css/signin.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
-    <title>Login</title>
+    <title>Dictionary</title>
 
 
 
@@ -31,11 +31,6 @@
             user-select: none;
         }
 
-        .center_div{
-        margin: 0 auto;
-        width:100% /* value of your choice which suits your alignment */
-        }
-
         @media (min-width: 768px) {
             .bd-placeholder-img-lg {
                 font-size: 3.5rem;
@@ -53,29 +48,16 @@
             color: green;
         }
 
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
+        .center_div{
+        margin: 0 auto;
+        width:50% /* value of your choice which suits your alignment */
         }
-      }
-    </style>
-    <!-- Custom styles for this template -->
-    <link href="{{url_for('static', filename='signin.css')}}" rel="stylesheet">
 
+    </style>
 
 </head>
-
-
-<body class="text-center">
+<body>
 
     <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark justify-content-center" >
@@ -107,22 +89,46 @@
         </nav>
     </header>
 
-
     <br><br><br><br>
 
-    <div class="container">
-        <form class="form-signin" action = "#" method = "post">
+    {% block content %}
 
-          <img class="mb-4" src="{{url_for('static', filename='dwight.jpg')}}" alt="" width="72" height="72">
-          <h1 class="h3 mb-3 font-weight-normal">Please use your authorized password for logs</h1>
 
-          <label class="sr-only">Password</label>
-          <input type="password" name="password" class="form-control" placeholder="Password" required="">
+    {% endblock content %}
 
-          <button class="btn btn-lg btn-danger btn-block" type="submit">Sign in and see the logs</button>
-        </form>
-    </div>
+    <main role="main">
+        <div class="container">
+          <h1 class="display-3">You are currently signed in as authorized user and you can see the logs.</h1>
+            <br>
+            {% for para in data %}
+                {{para}}<br>
+            {% endfor %}
 
+        </div>
+    </main>
+
+         <footer class="container py-5">
+          <div class="row">
+            <div class="col-12 col-md">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="d-block mb-2"><circle cx="12" cy="12" r="10"></circle><line x1="14.31" y1="8" x2="20.05" y2="17.94"></line><line x1="9.69" y1="8" x2="21.17" y2="8"></line><line x1="7.38" y1="12" x2="13.12" y2="2.06"></line><line x1="9.69" y1="16" x2="3.95" y2="6.06"></line><line x1="14.31" y1="16" x2="2.83" y2="16"></line><line x1="16.62" y1="12" x2="10.88" y2="21.94"></line></svg>
+              <small class="d-block mb-3 text-muted">© Davut Kulaksız</small>
+            </div>
+            <div class="col-6 col-md">
+              <h5>Website</h5>
+              <ul class="list-unstyled text-small">
+                <li><a class="text-muted" href="//davutkulaksiz.github.io" target="_blank">Github Pages</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-md">
+              <h5>Projects</h5>
+              <ul class="list-unstyled text-small">
+                  <li><a class="text-muted" href="//davutkulaksiz.github.io" target="_blank">Front-end Project</a></li>
+                  <li><a class="text-muted" href="https://github.com/davutkulaksiz/exchange-rate-of-try" target="_blank">First Flask Project</a></li>
+
+              </ul>
+            </div>
+          </div>
+        </footer>
 
 
     <!-- Bootstrap JS Scripts-->
