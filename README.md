@@ -6,3 +6,4 @@ It has two pages one devoted to English-Turkish translations and other is devote
 
 The site's authorization password is "mentörşip". By using this password you can access the logs in /loglar/logs.txt.
 If you do not sign in with this authorizated password, then you won't be able to see the logs.
+Now you can access the logs on website itself. You don't have to deal with your file explorer.
