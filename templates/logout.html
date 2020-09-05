@@ -98,14 +98,9 @@
 
     <main role="main">
         <div class="container">
-          <h1 class="display-3">You are currently signed in as authorized user and you can see the logs.</h1>
+          <h1 class="display-3">You are now logged out and you can not access the logs.</h1>
+            <p><a class="btn btn-danger btn-lg"  href="/" role="button">Return to Main Page »</a></p>
             <br>
-            <p><a class="btn btn-danger btn-lg"  href="/logout" role="button">Logout »</a></p>
-            <br>
-            {% for para in data %}
-                {{para}}<br>
-            {% endfor %}
-
         </div>
     </main>
 

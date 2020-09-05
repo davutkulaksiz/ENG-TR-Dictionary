@@ -1,16 +1,12 @@
 from datetime import datetime
 
 import flask
-from flask import Flask, render_template, request, url_for, redirect
+from flask import Flask, render_template, request, url_for, redirect, session
 
 import pandas as pd
 
-
 app = Flask(__name__)
-
-
-authorization = False
-
+app.secret_key = "çalgan is our saviour"
 
 # Reading csv file with pandas
 df = pd.read_csv("dictionary.csv", delimiter= ",")
@@ -47,20 +43,25 @@ def indexSuccessfull():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-
     # Getting input from user by POST method
     if request.method == "POST":
         password = request.form["password"]
         # Checking if input matches with our password
         if password == "mentörşip":
+            session["user"] = password
             # Now user can access to logs
-            global authorization
-            authorization = True
             return redirect(url_for("indexSuccessfull"))
         else:
             return redirect(url_for("indexLoginError"))
     else:
         return render_template("login.html")
+
+@app.route("/logout", methods=["GET", "POST"])
+def logout():
+    # Clearing session data to disable logs
+    session.pop("user", None)
+    return render_template("logout.html")
+
 
 @app.route("/EnglishToTurkish", methods=["GET", "POST"])
 def english():
@@ -110,9 +111,9 @@ def turkish():
 
 @app.route("/log", methods=["GET", "POST"])
 def logspage():
-    global authorization
     data = ""
-    if authorization == True:
+    if "user" in session:
+        session["user"] = "admin"
         with open('loglar/logs.txt', 'r') as file:
             data = file.read().split('\n')
         return render_template("log.html", data=data)
