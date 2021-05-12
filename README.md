@@ -11,7 +11,7 @@ A dictionary made using **Flask** and a CSV file. It's a responsive site that ba
 
 ## Authorization
 - The site's authorization password is "mentörşip".
-- By using this password you can access the logs in /loglar/logs.txt.
+- By using this password you can access the logs in /loglar/logs.txt
 - If you do not sign in with this authorizated password, then you won't be able to see the logs.
 
 
