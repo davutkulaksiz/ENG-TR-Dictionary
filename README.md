@@ -1,7 +1,7 @@
 
 # ENG-TR Dictionary
 
-<img src="/ENG_TR_1.jpg"></img>
+<img src="/croppedImage.jpg"></img>
 
 A dictionary made using **Flask** and a CSV file. It's a responsive site that backed up by **Bootstrap**.
 
